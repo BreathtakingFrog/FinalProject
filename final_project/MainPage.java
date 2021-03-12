@@ -31,13 +31,13 @@ public class MainPage {
                 for (int j=0;j<1;) { //infinity loop
                     System.out.println("Your passengers:");
                     database.printpassenger(id); //it will be show passengers from database
-                    System.out.println("Enter 1 to add your user");
-                    System.out.println("Enter 2 to return to main Menu");
+                    System.out.println("Enter 1 to add your user"); //if user enter 1 he will go to addpassenger
+                    System.out.println("Enter 2 to return to main Menu");//he will go to the Main page menu again
                     input = in.nextLine();
                     if (input.equals("1")) {
-                        passenger.addpassenger(id);
+                        passenger.addpassenger(id); //add passenger
                     } else if (input.equals("2")) {
-                        break;
+                        break; //go to the memu
                     }
                 }
             }
@@ -47,9 +47,9 @@ public class MainPage {
             }
             else if (input.equals("4")) {
                 String query= "select user_id,phone_number,email from users where user_id= "+id;
-                database.printinfo(query);
+                database.printinfo(query); //profile view from database
             }
-            else if(input.equals("5")) break;
+            else if(input.equals("5")) break; //exit
             }
         }
     }
