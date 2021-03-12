@@ -6,10 +6,9 @@ import java.util.Scanner;
 
 public class Registration extends User implements RegInterface  {
     private int id_gen=database.maxid()+1;
-    //PostgreSQL database= PostgreSQL.getInstance();
+   
     public Registration(){};
-    //Scanner in= new Scanner(System.in);
-    //Validator valid =new Validator();
+
 
     @Override
     public void register(){
