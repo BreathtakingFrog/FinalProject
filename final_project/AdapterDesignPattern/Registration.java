@@ -1,4 +1,4 @@
-package kz.aitu.oop.final_project.AdapterDesignPattern;
+package kz.aitu.oop.final_project.AdapterDesignPattern;//new package 
 import kz.aitu.oop.final_project.PostgreSQL;
 import kz.aitu.oop.final_project.Validator;
 
@@ -16,34 +16,34 @@ public class Registration extends User implements RegInterface  {
         System.out.println(id_gen);
         System.out.println("Enter your phone number: ");
         String phonenumber = in.nextLine();
-        for (int i=0;i<1;) {
-            if (phonenumber.isEmpty()||!valid.checkPhone_number(phonenumber)){
-                System.out.println("Enter your phone number: ");
+        for (int i=0;i<1;) { //infinity loop
+            if (phonenumber.isEmpty()||!valid.checkPhone_number(phonenumber)){ //If number is invalid
+                System.out.println("Enter your phone number: "); // You have to write it again
                 phonenumber = in.nextLine();
-            } else {
+            } else { //else you will go to the email graph
                 break;
             }
         }
-        System.out.println("Enter your email: ");
+        System.out.println("Enter your email: "); 
         String email = in.nextLine();
-        for (int i=0;i<1;) {
-            if (email.isEmpty()){
+        for (int i=0;i<1;) { //infinity loop
+            if (email.isEmpty()){ //If email is invalid
                 System.out.println("Enter your email: ");
                 email = in.nextLine();
             } else{
-                break;
+                break; //else you will go to the password graph
             }
         }
         System.out.println("Enter password: (Password must to contain at least 1 uppercase letter," +
-                " 1 lowercase letter, 1 digit, 1 special symbol(@,$,!,^) and length more or equal to 8.) ");
+                " 1 lowercase letter, 1 digit, 1 special symbol(@,$,!,^) and length more or equal to 8.) "); //criteria for password
         String password = in.nextLine();
-        for (int i=0;i<1;) {
+        for (int i=0;i<1;) { //infinity loop
 
-            if(valid.checkPassword(password)){
+            if(valid.checkPassword(password)){ //if password is correct
                 break;
             }else {
-                System.out.println("Incorrect syntax. Enter your password again: ");
-                password = in.nextLine();
+                System.out.println("Incorrect syntax. Enter your password again: "); //else you write it again
+                password = in.nextLine(); 
             }
         }
         String sql = "insert into Users values ("+id_gen +",'" + phonenumber +"','" + email +"','"+ password +"')";
