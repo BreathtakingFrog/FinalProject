@@ -29,19 +29,19 @@ public class Validator { // We create a validator class
     return digit>0&&upper>0&&lower>0&&sign>0;
     }
 
-    public boolean checkDate(String date){
-        if (date.length()!=10) return false;
+    public boolean checkDate(String date){ // Here we create a date check.
+        if (date.length()!=10) return false; // If the date does not consist of 10 characters, then it will show false
         for (int i=0;i<date.length();i++){
     char ch =date.charAt(i);
     if (i==2 || i ==5){
-        if (ch !='.') return false;
+        if (ch !='.') return false; // If the date is without dots, then it will show false
     } else {
-        if (ch<'0'|| ch>'9'){
+        if (ch<'0'|| ch>'9'){ // If in this command instead of numbers there are other characters, then it will show false
             return false;
         }
     }
     }
-        return true;
+        return true; // If everything is correct, it will show true
 }
     public boolean checkIIN(String IIN){
         if (IIN.length()!=12) return false;
