@@ -26,7 +26,7 @@ public class Main {
         String ans=in.nextLine();//read user input
          if (ans.equals("1")){
              User user= new User();
-             id= user.auth();
+             id= user.auth();//check user authentification if coorect return id else ask password again
              if (id!=0){
                  MainPage mainpage=new MainPage(id);
                  mainpage.view();
