@@ -11,23 +11,23 @@ public class MainPage {
         this.id=id;
     }
     public void view(){
-        for (int i=0;i<1;) {
+        for (int i=0;i<1;) { //infinity loop
             System.out.println();
             System.out.println("               Main Page\n" +
                     "Enter 1 in order to order a ticket\n" +
                     "Enter 2 to view your passenger\n" +
                     "Enter 3 to view your history\n" +
                     "Enter 4 to view your profile\n" +
-                    "Enter 5 to exit from account");
+                    "Enter 5 to exit from account"); //main page menu
             String input = in.nextLine();
-            if(input.equals("1")){
-                System.out.println("From: ");
+            if(input.equals("1")){ //if user enter 1 he will go to the order a ticket
+                System.out.println("From: "); //from where
                 String from =in.nextLine();
-                System.out.println("To: ");
+                System.out.println("To: "); //to where
                 String to =in.nextLine();
-                database.printflights(from,to);
+                database.printflights(from,to); //flights from database
             }
-            if (input.equals("2")) {
+            if (input.equals("2")) { //if user enter 2 he will go to the picking up the passengers
                 for (int j=0;j<1;) {
                     System.out.println("Your passengers:");
                     database.printpassenger(id);
