@@ -43,7 +43,7 @@ public class Main {
          }
 
         }
-        database1.close();
+        database1.close();//close connection
     }
 
     }
