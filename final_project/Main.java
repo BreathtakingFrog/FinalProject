@@ -16,15 +16,14 @@ public class Main {
         PostgreSQL database1= PostgreSQL.getInstance();
         database1.connect(url,usersql,passwordsql);//connect to database
 
-        Validator valid =new Validator();
+       
         Scanner in= new Scanner(System.in);
-        String exit="exit";
         int id;
         for(int ex=0;ex<1;){
         System.out.println("Enter 1 - if you already have account\n" +
                 "Enter 2 - for registration\n" +
                 "Enter 3 - to exit app");
-        String ans=in.nextLine();
+        String ans=in.nextLine();//read user input
          if (ans.equals("1")){
              User user= new User();
              id= user.auth();
