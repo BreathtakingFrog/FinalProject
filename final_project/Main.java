@@ -35,10 +35,10 @@ public class Main {
 
          } else if (ans.equals("2")){
              RegInterface reg1=new Registration();
-             reg1.register();
+             reg1.register();//registrate new user
 
          }
-         else if(ans.equals("3")){
+         else if(ans.equals("3")){//exit app
              break;
          }
 
