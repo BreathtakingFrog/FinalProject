@@ -147,6 +147,7 @@ public class PostgreSQL implements BaseConnect{
        return false;
     }
 
+    //method for getting id thanks to phonenumber
     public int getid(String phonenumber){
         String sql="select user_id from users where phone_number= '"+phonenumber+"'";
         Statement stmt;
@@ -164,6 +165,8 @@ public class PostgreSQL implements BaseConnect{
         }
         return 0;
     }
+    
+    //print all flight from city where user indicate and to city which user indicate
     public void printflights(String from,String to){
         from="'"+from+"'";
         to="'"+to+"'";
@@ -184,6 +187,8 @@ public class PostgreSQL implements BaseConnect{
             System.out.println(e.getMessage());
         }
     }
+    
+    //print all user details
     public void printinfo(String sql){
         Statement stmt;
 
@@ -204,7 +209,7 @@ public class PostgreSQL implements BaseConnect{
             }
     }
 
-
+    //close database connnection
     public void close(){
         try{
            con.close();
