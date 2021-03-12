@@ -19,22 +19,22 @@ public class User {
     }
     public int auth(){
 
-        for (int i = 0; i < 1; ) {
+        for (int i = 0; i < 1; ) { //infinity loop
             System.out.println("Enter your phone number: ");
             String phonenumber = in.nextLine();
-            if (phonenumber.equalsIgnoreCase("exit")) {
+            if (phonenumber.equalsIgnoreCase("exit")) { //if it is correct, you will go to the next section
                 break;
             }
             System.out.println("Enter your password: ");
-            if (phonenumber.equalsIgnoreCase("exit")) {
+            if (phonenumber.equalsIgnoreCase("exit")) { //if it is correct, you will go to the next section
                 break;
             }
             String password = in.nextLine();
         if(database.checkauthentication( phonenumber,password)){
-            System.out.println("Authentification complete");
+            System.out.println("Authentification complete"); //if it is correct, you will go to the next section
             return database.getid(phonenumber);
         }
-            System.out.println("Invalid password or login");
+            System.out.println("Invalid password or login"); // else you will write all data again
     }
         return 1;
 }
