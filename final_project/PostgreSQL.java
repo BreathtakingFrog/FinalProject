@@ -107,6 +107,8 @@ public class PostgreSQL implements BaseConnect{
         }
         return 0;
     }
+    
+    //printpassenger method to print all passenger in your account
     void printpassenger(int id){
         Statement stmt;
         String sql= "select first_name ,second_name,gender,dateofbirth, citizenship, documentno, dateofexpare, IIN from passengers,users where Passengers.user_id="+id;
