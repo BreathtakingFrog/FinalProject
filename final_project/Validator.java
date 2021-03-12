@@ -43,30 +43,30 @@ public class Validator { // We create a validator class
     }
         return true; // If everything is correct, it will show true
 }
-    public boolean checkIIN(String IIN){
-        if (IIN.length()!=12) return false;
+    public boolean checkIIN(String IIN){ // Here we create a check IIN
+        if (IIN.length()!=12) return false; // If IIN is less than or more than 12 digits, then it will show false.
         for (int i=0;i<IIN.length();i++){
-            if (IIN.charAt(i)<'0' || IIN.charAt(i)>'9' ) return false;
+            if (IIN.charAt(i)<'0' || IIN.charAt(i)>'9' ) return false; // If in this command instead of numbers there are other characters, then it will show false
         }
-        return true;
+        return true; // Everything else is true
     }
 
-    public boolean checkDocumentno(String documentno){
-        if (documentno.length()!=9) return false;
+    public boolean checkDocumentno(String documentno){ // Here we create a check Document number
+        if (documentno.length()!=9) return false; // If Document number is less than or more than 9 digits, then it will show false.
         for (int i=0; i<documentno.length();i++){
-            if (documentno.charAt(i)<'0' || documentno.charAt(i)>'9')return false;
+            if (documentno.charAt(i)<'0' || documentno.charAt(i)>'9')return false; // If in this command instead of numbers there are other characters, then it will show false
         }
-        return true;
+        return true; // Everything else is true
     }
 
-    public boolean checkPhone_number(String phone_number){
-        if (phone_number.charAt(0)=='+'&&phone_number.length()!=12) return false;
-        if (phone_number.charAt(0)!='+'&&phone_number.length()!=11)return false;
+    public boolean checkPhone_number(String phone_number){ // Here we create a check check Phone_number 
+        if (phone_number.charAt(0)=='+'&&phone_number.length()!=12) return false; // If the first number starts with "+", then there must be 12 characters.
+        if (phone_number.charAt(0)!='+'&&phone_number.length()!=11)return false; // If the number starts without "+", then there should be 11 characters.
         for (int i=0; i<phone_number.length();i++){
             if(phone_number.charAt(0)=='+') i++;
-            if (phone_number.charAt(i)<'0' || phone_number.charAt(i)>'9')return false;
+            if (phone_number.charAt(i)<'0' || phone_number.charAt(i)>'9')return false; // // If in this command instead of numbers there are other characters, then it will show false
         }
-        return true;
+        return true; // Everything else is true
     }
 
 
