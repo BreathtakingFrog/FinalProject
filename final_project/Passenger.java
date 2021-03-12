@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Passenger { // Create a passenger class
     Scanner in = new Scanner(System.in);
     Validator valid = new Validator(); // Add a new validator.
-    PostgreSQL database = PostgreSQL.getInstance(); // We connect it with the date base.
+    PostgreSQL database = PostgreSQL.getInstance(); 
     public Passenger(){};
 
     public void addpassenger(int id){
