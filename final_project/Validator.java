@@ -1,27 +1,27 @@
-package kz.aitu.oop.final_project;
+package kz.aitu.oop.final_project; // Create a final_project package
 
-public class Validator {
+public class Validator { // We create a validator class
     PostgreSQL database = PostgreSQL.getInstance();
     public Validator() {
     }
 
-    public boolean checkPassword (String password){
-        if (password.length()<8) return false;
-        char[] signs={'@','$','!','^'};
-        int sign=0,upper=0,lower=0,digit=0;
+    public boolean checkPassword (String password){ //Here we create a password check so that all passwords are of the same type.
+        if (password.length()<8) return false; // If the password is less than 8 characters, then it will be incorrect.
+        char[] signs={'@','$','!','^'}; // Here are the symbols for the password.
+        int sign=0,upper=0,lower=0,digit=0; 
     for (int i=0;i<password.length();i++){
         char ch = password.charAt(i);
-        if (ch>='0' && ch<='9'){
+        if (ch>='0' && ch<='9'){ // The password must include numbers.
             digit++;
         }
-        if (ch>='a' && ch<='z'){
+        if (ch>='a' && ch<='z'){ // The password must include small letters.
             lower++;
         }
-        if (ch>='A' && ch<='Z'){
+        if (ch>='A' && ch<='Z'){ // The password must include capital letters.
             upper++;
         }
     for (int j=0;j<4;j++){
-        if (ch==signs[j]){
+        if (ch==signs[j]){ // Check for symbols
             sign++;
         }
     }
