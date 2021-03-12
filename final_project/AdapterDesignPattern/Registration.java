@@ -47,10 +47,10 @@ public class Registration extends User implements RegInterface  {
             }
         }
         String sql = "insert into Users values ("+id_gen +",'" + phonenumber +"','" + email +"','"+ password +"')";
-        database.execSQL(sql,null);
+        database.execSQL(sql,null); // data will be inserted in the database
         System.out.println("The account number " + id_gen +" with phone number: "+ phonenumber +" and email: " + email +
-                " has benn successfully created");
-        id_gen++;
+                " has benn successfully created"); //print of your data
+        id_gen++; //next id will be +1
     }
 
 
