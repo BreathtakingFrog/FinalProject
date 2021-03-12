@@ -1,6 +1,6 @@
 package kz.aitu.oop.final_project.AdapterDesignPattern;
 
 public interface RegInterface {
-    public void register();
+    public void register(); //interface for registration
 
 }
