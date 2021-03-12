@@ -89,6 +89,7 @@ public class PostgreSQL implements BaseConnect{
           }
           return 0;
     }
+    //return passengermaxid in order to register passenger
     public int passengermaxid(){
         String sql="select max(pasenger_id) from Passengers";
         Statement stmt;
