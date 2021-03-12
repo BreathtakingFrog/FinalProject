@@ -29,7 +29,7 @@ public class Main {
              id= user.auth();//check user authentification if coorect return id else ask password again
              if (id!=0){
                  MainPage mainpage=new MainPage(id);
-                 mainpage.view();
+                 mainpage.view();//direct to MainPage
              }
 
 
