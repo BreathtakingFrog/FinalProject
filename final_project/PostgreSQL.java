@@ -9,17 +9,19 @@ public class PostgreSQL implements BaseConnect{
     //Singleton Design Pattern
     private Connection con =null;
     private static PostgreSQL single_instance;
-    private PostgreSQL(){
+    private PostgreSQL(){//private constructor
 
     }
 
-
+    //static method to create instance of a class
     public static PostgreSQL getInstance(){
         if (single_instance==null)
             single_instance =new PostgreSQL();
 
         return single_instance;
     }
+    
+    //database connection
     @Override
     public Connection connect(String url, String user, String password){
         try {
@@ -69,6 +71,7 @@ public class PostgreSQL implements BaseConnect{
 
       return null;
    }
+    //return maxid in order to register users
   public int maxid(){
         String sql="select max(user_id) from users";
       Statement stmt;
