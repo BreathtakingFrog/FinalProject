@@ -14,7 +14,7 @@ public class Main {
         String usersql="postgres";
         String passwordsql="123";
         PostgreSQL database1= PostgreSQL.getInstance();
-        database1.connect(url,usersql,passwordsql);
+        database1.connect(url,usersql,passwordsql);//connect to database
 
         Validator valid =new Validator();
         Scanner in= new Scanner(System.in);
