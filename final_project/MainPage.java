@@ -28,7 +28,7 @@ public class MainPage {
                 database.printflights(from,to); //flights from database
             }
             if (input.equals("2")) { //if user enter 2 he will go to the picking up the passengers
-                for (int j=0;j<1;) {
+                for (int j=0;j<1;) { //
                     System.out.println("Your passengers:");
                     database.printpassenger(id);
                     System.out.println("Enter 1 to add your user");
