@@ -37,6 +37,26 @@ public class PostgreSQL implements BaseConnect{
         }
         return 1;
     }
+    public void printhistory(int id){
+        String sql="select fromwhere, towhere,dateofflight,seat_num " +
+                "from flight inner join booking on booking.flight_id=flight.flight_id where user_id= "+id;
+        Statement stmt;
+
+        try {
+            stmt =con.createStatement();
+            ResultSet rs = stmt.executeQuery( sql );
+            while ( rs.next() ) {
+                System.out.println("From " + rs.getString(1) + " To " + rs.getString(2) + " Date: " +
+                        rs.getString(3)+ " Seatnum: " + rs.getString(4));
+                System.out.println();
+            }
+           // stmt.close();
+
+        } catch (SQLException e ) {
+            //System.out.println(e.getMessage());
+            System.out.println("You don't have any flights");
+        }
+    }
      public void updateseat(int plane_id,String seatnum){
         String update="update place set status='unavailable' where plane_id= "+plane_id+" and seat_num="+seatnum;
         Statement stmt;
