@@ -146,6 +146,31 @@ public class PostgreSQL implements BaseConnect{
           return 0;
     }
     
+    public void bookingtickets(String flight_id,int numbers,int user_id){
+
+        int booking_id=bookingmaxid();
+        int plane_id=getplaneid(flight_id);
+        Statement stmt;
+        for (int i=0;i<numbers;i++){
+            String seatnum=getseatnum(plane_id);
+            String sql="insert into booking values ('"+booking_id+"','"+ user_id+"','"+flight_id+ "','"+plane_id+"','"+seatnum+"')";
+            System.out.println(sql);
+            try {
+                stmt =con.createStatement();
+                stmt.executeUpdate(sql);
+                // System.out.println("Query was executed");
+
+            } catch ( SQLException e ) {
+                System.out.println(e.getMessage());
+            }
+
+            updateseat(plane_id,seatnum);
+                //stmt.close();
+
+        }
+    }
+
+    
     public int ticketcost(String flight_id,int bookseats){
         String sql="select min_cost from flight where flight_id="+flight_id;
         Statement stmt;
