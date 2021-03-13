@@ -25,7 +25,7 @@ public class MainPage {
                 String from =in.nextLine();
                 System.out.println("To: "); //to where
                 String to =in.nextLine();
-                database.printflights(from,to); //flights from database
+                database.printflights(from,to,id); //flights from database
             }
             if (input.equals("2")) { //if user enter 2 he will go to the picking up the passengers
                 for (int j=0;j<1;) { //infinity loop
