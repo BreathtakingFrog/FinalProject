@@ -20,6 +20,23 @@ public class PostgreSQL implements BaseConnect{
 
         return single_instance;
     }
+    public int bookingmaxid(){
+        String sql="select max(booking_id) from booking";
+        Statement stmt;
+
+        try {
+            stmt =con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getInt(1)+1;
+
+
+            //stmt.close();
+        } catch (SQLException e ) {
+            System.out.println(e.getMessage());
+        }
+        return 1;
+    }
      public void updateseat(int plane_id,String seatnum){
         String update="update place set status='unavailable' where plane_id= "+plane_id+" and seat_num="+seatnum;
         Statement stmt;
