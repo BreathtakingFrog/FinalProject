@@ -51,4 +51,3 @@ Yeldos Tazhenov, Abilkaiyr Merekeyev, Dias Pak CS-2008
 
 
 
-100 ballov 
