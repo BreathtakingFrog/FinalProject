@@ -43,6 +43,24 @@ public class PostgreSQL implements BaseConnect{
         }
 
     }
+      public int numberseats(String flight_id){
+        String sql="select count(seat_num) from place inner join planes on place.plane_id=planes.plane_id " +
+                "inner join flight on flight.plane_id=planes.plane_id  where status='available' and flight_id="+flight_id;
+        Statement stmt;
+
+        try {
+            stmt =con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getInt(1);
+
+
+            //stmt.close();
+        } catch (SQLException e ) {
+            System.out.println(e.getMessage());
+        }
+        return 0;
+    }
     
     //database connection
     @Override
