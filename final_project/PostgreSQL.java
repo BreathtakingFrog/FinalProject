@@ -130,6 +130,24 @@ public class PostgreSQL implements BaseConnect{
           }
           return 0;
     }
+    
+    public int ticketcost(String flight_id,int bookseats){
+        String sql="select min_cost from flight where flight_id="+flight_id;
+        Statement stmt;
+
+        try {
+            stmt =con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getInt(1)*bookseats;
+
+
+            //stmt.close();
+        } catch (SQLException e ) {
+            return 0;
+        }
+    }
+    
     //return passengermaxid in order to register passenger
     public int passengermaxid(){
         String sql="select max(pasenger_id) from Passengers";
