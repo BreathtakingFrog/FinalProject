@@ -20,6 +20,29 @@ public class PostgreSQL implements BaseConnect{
 
         return single_instance;
     }
+  
+    
+    public void booknum(String flight_id,int user_id){
+        //String sql="";
+        Scanner in= new Scanner(System.in);
+        int numberofseats= numberseats(flight_id);
+        System.out.println("Number of available tickets "+numberofseats);
+        System.out.println("How many tickets do you want to book?");
+        int bookseats=Integer.parseInt(in.nextLine());
+        if(bookseats>numberofseats){
+            System.out.println("There are no so many tickets");
+            return;
+        }
+        int cost=ticketcost(flight_id,bookseats);
+        System.out.println("Total price is "+cost);
+        System.out.println("Enter 1 if you sure you want to book a ticket\n" +
+                "Enter 2 to exit");
+        String ans = in.nextLine();
+        if(ans.equals("1")){
+            bookingtickets(flight_id,bookseats,user_id);
+        }
+
+    }
     
     //database connection
     @Override
@@ -167,36 +190,24 @@ public class PostgreSQL implements BaseConnect{
     }
     
     //print all flight from city where user indicate and to city which user indicate
-    public void printflights(String from1,String to1,int user_id){
-        from1="'"+from1+"'";
-        to1="'"+to1+"'";
-        String sql="select flight_id,fromwhere,towhere,dateofflight, min_cost from flight where fromwhere="+from1+"and towhere="+to1;
+    public void printflights(String from,String to){
+        from="'"+from+"'";
+        to="'"+to+"'";
+        String sql="select fromwhere,towhere,dateofflight, min_cost from flight where fromwhere="+from+"and towhere="+to;
         Statement stmt;
 
         try {
-            stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            stmt =con.createStatement();
+            ResultSet rs = stmt.executeQuery( sql );
 
-            while (rs.next()) {
-                System.out.println(rs.getInt(1) + ' ' + rs.getString(2) + ' ' + rs.getString(3) + ' ' + rs.getString(4) + " Ticket min_cost: " + rs.getString(5));
-                System.out.println();
-        }
+            while(rs.next()){
+            System.out.println(rs.getString(1)+' '+rs.getString(2)+ ' '+ rs.getString(3)+ " Ticket cost: "+rs.getString(4));}
+            System.out.println();
+
             stmt.close();
 
         } catch (SQLException e ) {
-           // System.out.println(e.getMessage());
-            System.out.println("there are no flights from this city to the destination city");
-            return;
-        }
-        Scanner in= new Scanner(System.in);
-        System.out.println("Enter id of flight which you want to book: \n" +
-                "Type exit to return to main menu");
-        String flight_id=in.nextLine();
-        for (int i=0; i<1;){
-            if(flight_id.equals("exit")) break;
-            booknum(flight_id,user_id);
-            System.out.println("Enter id of flight which you want to book: \n" +
-                    "Type exit to return to main menu");
+            System.out.println(e.getMessage());
         }
     }
     
