@@ -261,7 +261,21 @@ public class PostgreSQL implements BaseConnect{
             System.out.println(e.getMessage());
         }
     }
-    
+      public String getseatnum(int plane_id){
+        String sql="select seat_num from place where status = 'available' and plane_id="+plane_id+" offset 0 limit 1";
+        Statement stmt;
+
+        try {
+            stmt =con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getString(1);
+//stmt.close();
+        } catch (SQLException e ) {
+            System.out.println("No places");
+        }
+        return null;
+    }
     //print all user details
     public void printinfo(String sql){
         Statement stmt;
