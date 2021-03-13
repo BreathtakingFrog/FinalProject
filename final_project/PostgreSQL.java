@@ -20,7 +20,22 @@ public class PostgreSQL implements BaseConnect{
 
         return single_instance;
     }
-  
+   public int getplaneid(String flight_id){
+        String sql="select plane_id from flight where flight_id="+flight_id;
+        Statement stmt;
+
+        try {
+            stmt =con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getInt(1);
+
+
+            //stmt.close();
+        } catch (SQLException e ) {
+            return 0;
+        }
+    }
     
     public void booknum(String flight_id,int user_id){
         //String sql="";
