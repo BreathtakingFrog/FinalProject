@@ -20,6 +20,19 @@ public class PostgreSQL implements BaseConnect{
 
         return single_instance;
     }
+     public void updateseat(int plane_id,String seatnum){
+        String update="update place set status='unavailable' where plane_id= "+plane_id+" and seat_num="+seatnum;
+        Statement stmt;
+        try {
+            stmt =con.createStatement();
+            stmt.executeUpdate(update);
+            // System.out.println("Query was executed");
+
+
+        } catch ( SQLException e ) {
+            System.out.println(e.getMessage());
+        }
+    }
    public int getplaneid(String flight_id){
         String sql="select plane_id from flight where flight_id="+flight_id;
         Statement stmt;
